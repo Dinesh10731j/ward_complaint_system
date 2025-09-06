@@ -1,0 +1,162 @@
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: linear-gradient(135deg, #dfefff, #f4f7f9);
+    }
+
+    /* =====================
+       BUBBLE BACKGROUND
+    ====================== */
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0; /* Behind everything else */
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 60px rgba(255, 255, 255, 0.4);
+      filter: blur(12px);
+      animation: float 30s infinite ease-in-out;
+      z-index: 5;
+    }
+
+    .bubble:nth-child(1) {
+      width: 120px;
+      height: 120px;
+      top: 10%;
+      left: 15%;
+      animation-duration: 20s;
+    }
+
+    .bubble:nth-child(2) {
+      width: 180px;
+      height: 180px;
+      top: 30%;
+      left: 70%;
+      animation-duration: 35s;
+    }
+
+    .bubble:nth-child(3) {
+      width: 100px;
+      height: 100px;
+      top: 60%;
+      left: 40%;
+      animation-duration: 25s;
+    }
+
+    .bubble:nth-child(4) {
+      width: 150px;
+      height: 150px;
+      top: 80%;
+      left: 20%;
+      animation-duration: 40s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.5;
+      }
+      50% {
+        transform: translateY(-40px) scale(1.1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.5;
+      }
+    }
+
+    /* =====================
+       Layout Styling
+    ====================== */
+    header, footer {
+      background-color: #004080;
+      color: #fff;
+      padding: 1rem 2rem;
+      z-index: 2;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: 2rem auto;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      color: #004080;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    input, textarea, select {
+      padding: 0.75rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #004080;
+      color: white;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0066cc;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 1rem;
+        margin: 1rem;
+      }
+    }

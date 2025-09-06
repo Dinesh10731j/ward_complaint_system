@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ward Complaint System</title>
+  <link rel="stylesheet" href="./css/index.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  
+  </style>
+</head>
+<body>
+
+  <!-- 🌟 Bubble Background -->
+  <div class="background">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <h1>Ward Complaint System</h1>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <h2>Submit a Complaint</h2>
+    <form id="complaintForm">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required />
+
+      <label for="ward">Ward Number</label>
+      <select id="ward" name="ward" required>
+        <option value="">Select your ward</option>
+        <option value="1">Ward 1</option>
+        <option value="2">Ward 2</option>
+        <option value="3">Ward 3</option>
+      </select>
+
+      <label for="complaint">Complaint</label>
+      <textarea id="complaint" name="complaint" rows="5" placeholder="Describe your complaint..." required></textarea>
+
+      <button type="submit">Submit Complaint</button>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Ward Complaint System | All rights reserved.
+  </footer>
+
+  <script src="./script/index.js" type="module"></script>
+</body>
+</html>
