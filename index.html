@@ -9,51 +9,110 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-  
-  </style>
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-
-  <!-- 🌟 Bubble Background -->
-  <div class="background">
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-  </div>
-
   <!-- Header -->
-  <header>
-    <h1>Ward Complaint System</h1>
+  <header class="header">
+    <div class="logo"><i class="fa-solid fa-city"></i> Ward<span>System</span></div>
+    <nav class="nav">
+      <a href="#"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="#about"><i class="fa-solid fa-circle-info"></i> About</a>
+      <a href="#features"><i class="fa-solid fa-star"></i> Features</a>
+      <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+      <a href="./register.html" class="btn register"><i class="fa-solid fa-user-plus"></i> Register</a>
+      <a href="./login.html" class="btn login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+    </nav>
   </header>
 
-  <!-- Main Content -->
-  <main>
-    <h2>Submit a Complaint</h2>
-    <form id="complaintForm">
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" placeholder="Enter your name" required />
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1><i class="fa-solid fa-gavel"></i> Ward Complaint System</h1>
+      <p>Empowering citizens to raise their voices and ensure better community service.</p>
+      <a href="./register.html" class="btn cta"><i class="fa-solid fa-arrow-right"></i> Get Started</a>
+    </div>
+  </section>
 
-      <label for="ward">Ward Number</label>
-      <select id="ward" name="ward" required>
-        <option value="">Select your ward</option>
-        <option value="1">Ward 1</option>
-        <option value="2">Ward 2</option>
-        <option value="3">Ward 3</option>
-      </select>
+  <!-- About Section -->
+  <section id="about" class="content-section">
+    <h2><i class="fa-solid fa-circle-info"></i> About the System</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          The Ward Complaint System is a platform that allows citizens to submit complaints regarding civic issues
+          like sanitation, water supply, road repairs, and public services. It promotes transparency,
+          efficiency, and accountability in local governance by connecting citizens with ward authorities directly.
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="./images/people.jpg" alt="Ward Complaint System" />
+      </div>
+    </div>
+  </section>
 
-      <label for="complaint">Complaint</label>
-      <textarea id="complaint" name="complaint" rows="5" placeholder="Describe your complaint..." required></textarea>
+  <!-- Features Section -->
+  <section id="features" class="grid-container">
+    <div class="card">
+      <i class="fa-solid fa-pencil fa-3x feature-icon"></i>
+      <h3>Submit Complaints Online</h3>
+      <p>Quickly report civic issues from anywhere using our platform. Track status and stay informed.</p>
+    </div>
+    <div class="card">
+      <i class="fa-solid fa-eye fa-3x feature-icon"></i>
+      <h3>Track Complaint Status</h3>
+      <p>Monitor your complaints in real-time and receive notifications about progress and resolution.</p>
+    </div>
+    <div class="card">
+      <i class="fa-solid fa-handshake-angle fa-3x feature-icon"></i>
+      <h3>Transparent Governance</h3>
+      <p>Ward staff and admins can manage complaints efficiently while citizens stay informed about outcomes.</p>
+    </div>
+    <div class="card">
+      <i class="fa-solid fa-users-gear fa-3x feature-icon"></i>
+      <h3>Role-Based Access</h3>
+      <p>Citizens submit complaints, ward staff process them, and admins oversee the entire system securely.</p>
+    </div>
+  </section>
 
-      <button type="submit">Submit Complaint</button>
-    </form>
-  </main>
+  <!-- Contact Section -->
+  <!-- Contact Section -->
+<section id="contact" class="content-section">
+  <h2><i class="fa-solid fa-envelope"></i> Contact Us</h2>
+  <p>For inquiries or support, reach out to your ward office or email us at support@wardsystem.com.</p>
+
+  <div class="contact-grid">
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <img src="./images/contact.jpg" alt="Contact Us" class="contact-image"/>
+      <p><i class="fa-solid fa-location-dot"></i> 123 Ward Street, Your City</p>
+      <p><i class="fa-solid fa-phone"></i> +977 123 456 789</p>
+      <p><i class="fa-solid fa-envelope"></i> support@wardsystem.com</p>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <form id="contactForm">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+
+        <button type="submit" class="btn submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
 
   <!-- Footer -->
-  <footer>
+  <footer class="footer">
     &copy; 2025 Ward Complaint System | All rights reserved.
   </footer>
-
-  <script src="./script/index.js" type="module"></script>
 </body>
 </html>
