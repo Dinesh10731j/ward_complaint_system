@@ -132,6 +132,10 @@ body {
   margin-right: 0.5rem;
 }
 
+nav ul li a:visited  {
+  color: #ff7eb3;
+}
+
 /* Hero icon spacing */
 .hero-content h1 i {
   margin-right: 0.5rem;
