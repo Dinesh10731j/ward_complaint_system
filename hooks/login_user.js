@@ -1,28 +1,22 @@
 import { Endpoints } from "../endpoints/api_endpoints.js";
-const { register_user } = Endpoints
+const {login_user} = Endpoints
 
 
-export const useRegister = async (username,email,password,confirm_password) => {
+export const useLogin = async (email,password) => {
      const payload = {
-    username,
     email,
-    password,
-    confirm_password
+    password
   };
-
     try {
-
-        const requets = await fetch(register_user, {
+        const requets = await fetch(login_user, {
             headers: {
       'Content-Type': 'application/json',
     },
             method: "POST",
             body: JSON.stringify(payload)
         });
-
         const response = await requets.json();
         return response;
-
     } catch (err) {
         throw new Error(err.message)
     }
