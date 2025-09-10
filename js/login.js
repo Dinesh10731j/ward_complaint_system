@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("password").value.trim();
 
     try {
-      // Call login hook
+      
       const response = await useLogin(email, password);
       console.log("✅ Login Response:", response);
 
