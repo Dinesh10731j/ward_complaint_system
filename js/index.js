@@ -1,26 +1,17 @@
-// script/index.js
-import { useRegister } from "../hooks/register_user.js";
+import { useContact } from "../hooks/contact.js";
 
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('complaintForm');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Stop form from refreshing the page
-
-    // Get values from the form
-    const name = document.getElementById('name').value.trim();
-    const ward = document.getElementById('ward').value;
-    const complaint = document.getElementById('complaint').value.trim();
-
-    // Call useRegister with input values
-    const result = await useRegister(name, ward, complaint);
-
-    // Show result to user
-    if (result.status === 'success') {
-      alert('Complaint submitted successfully!');
-      form.reset(); // clear form
-    } else {
-      alert('Error: ' + result.message);
+const contactForm = document.getElementById('contactForm');
+contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    try {
+        const response = await useContact(name, email, message);
+        alert(response.message);
+        contactForm.reset();
     }
-  });
-});
+    catch (err) {
+        alert(err.message);
+    }
+})
