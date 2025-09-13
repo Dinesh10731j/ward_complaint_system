@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Users</title>
+  <link rel="stylesheet" href="../../css/admin.ManageUser.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>Menu</h2>
+      <button class="close-btn" id="closeSidebar">&times;</button>
+    </div>
+    <ul class="nav-list" id="navList"></ul>
+  </aside>
+
+  <!-- Overlay (mobile) -->
+  <div id="overlay" class="overlay"></div>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <button class="hamburger" id="menuToggle">☰</button>
+    <h1>Manage Users</h1>
+  </header>
+
+  <!-- Main Content -->
+  <main class="content">
+    <h1>Manage Users</h1>
+    
+    <section class="table-container">
+      <table class="users-table">
+        <thead>
+          <tr>
+            <th>User ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="userTableBody">
+          <!-- Rows injected dynamically -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script type="module" src="../../js/admin.ManageUser.js"></script>
+</body>
+</html>
