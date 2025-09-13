@@ -1,8 +1,8 @@
 export const Navigations = {
   admin: [
-    { label: "Dashboard", icon: "📊", link: "#dashboard" },
-    { label: "Users", icon: "👥", link: "#users" },
-    { label: "Reports", icon: "📄", link: "#reports" },
+    { label: "Dashboard", icon: "📊", link: "/dashboard/admin/dashboard.html" },
+    { label: "Manage Users", icon: "👥", link: "/dashboard/admin/manageUser.html" },
+    { label: "Reports", icon: "📄", link: "/dashboard/admin/ComplaintsReport.html" },
   ],
   ward_officer: [
     { label: "Ward Dashboard", icon: "🏘️", link: "#ward-dashboard" },
