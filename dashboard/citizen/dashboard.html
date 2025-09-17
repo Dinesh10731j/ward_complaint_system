@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Citizen Dashboard</title>
+  <link rel="stylesheet" href="../../css/citizen.dashboard.css" />
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>Menu</h2>
+      <button class="close-btn" id="closeSidebar">&times;</button>
+    </div>
+    <ul class="nav-list" id="citizenNav"></ul>
+  </aside>
+
+  <!-- Overlay (mobile) -->
+  <div id="overlay" class="overlay"></div>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <button class="hamburger" id="menuToggle">☰</button>
+    <h1>Citizen Dashboard</h1>
+  </header>
+
+  <!-- Content -->
+ <main class="content">
+  <h1>Hello, Citizen 👋</h1>
+
+  <!-- Complaint Stats -->
+  <section class="stats">
+    <h2>My Complaints</h2>
+    <div class="stats-grid">
+      <div class="card">
+        <h3>Total</h3>
+        <p id="totalComplaints">0</p>
+      </div>
+      <div class="card pending">
+        <h3>Pending</h3>
+        <p id="pendingComplaints">0</p>
+      </div>
+      <div class="card progress">
+        <h3>In Progress</h3>
+        <p id="progressComplaints">0</p>
+      </div>
+      <div class="card resolved">
+        <h3>Resolved</h3>
+        <p id="resolvedComplaints">0</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+  <script type="module" src="../../js/citizen.dashboard.js"></script>
+</body>
+</html>
