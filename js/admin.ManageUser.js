@@ -32,7 +32,8 @@ overlay.addEventListener("click", () => {
 const users = [
   { id: "U001", name: "John Doe", email: "john@example.com", role: "Admin" },
   { id: "U002", name: "Jane Smith", email: "jane@example.com", role: "User" },
-  { id: "U003", name: "Alex Khan", email: "alex@example.com", role: "User" }
+  { id: "U003", name: "Alex Khan", email: "alex@example.com", role: "User" },
+   { id: "U004", name: "Sara Jeans", email: "Sara@example.com", role: "Ward_Staff" }
 ];
 
 // Inject Users
@@ -45,7 +46,8 @@ users.forEach(user => {
     <td>
       <select class="role-select">
         <option value="Admin" ${user.role === "Admin" ? "selected" : ""}>Admin</option>
-        <option value="User" ${user.role === "User" ? "selected" : ""}>User</option>
+        <option value="Citizen" ${user.role === "Citizen" ? "selected" : ""}>Citizen</option>
+         <option value="Ward_Staff" ${user.role === "Ward_Staff" ? "selected" : ""}>Ward Staff</option>
       </select>
     </td>
     <td>
@@ -59,6 +61,8 @@ users.forEach(user => {
   tr.querySelector(".edit-btn").addEventListener("click", () => {
     const role = tr.querySelector(".role-select").value;
     alert(`Role of ${user.name} updated to ${role}`);
+
+    console.log(`The user_id is ${user.id} and role is ${user.role}`)
   });
 
   tr.querySelector(".delete-btn").addEventListener("click", () => {
