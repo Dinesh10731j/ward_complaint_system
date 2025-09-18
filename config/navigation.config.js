@@ -10,8 +10,8 @@ export const Navigations = {
     { label: "Reports", icon: "📄", link: "#ward-reports" },
   ],
   citizen: [
-    { label: "Home", icon: "🏠", link: "#home" },
-    { label: "Apply Service", icon: "📝", link: "#services" },
-    { label: "My Requests", icon: "📂", link: "#my-requests" },
+    { label: "Home", icon: "🏠", link: "/dashboard/citizen/dashboard.html" },
+    { label: "Register Complaint", icon: "📝", link: "/dashboard/citizen/complaint.html" },
+    { label: "My Complaints", icon: "📂", link: "/dashboard/citizen/my_Complaint.html" },
   ],
 };

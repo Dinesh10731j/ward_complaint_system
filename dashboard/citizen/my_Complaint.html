@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Complaint</title>
+  <link rel="stylesheet" href="../../css/citizen.my_Complaint.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+     <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>Menu</h2>
+      <button class="close-btn" id="closeSidebar">&times;</button>
+    </div>
+    <ul class="nav-list" id="citizenNav"></ul>
+  </aside>
+
+  <!-- Overlay (mobile) -->
+  <div id="overlay" class="overlay"></div>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <button class="hamburger" id="menuToggle">☰</button>
+    <h1>Citizen Dashboard</h1>
+  </header>
+
+  <main class="content">
+    <h1>My Complaints</h1>
+    <div class="table-container">
+      <table class="complaint-table">
+        <thead>
+          <tr>
+            <th>User ID</th>
+            <th>Username</th>
+            <th>Ward</th>
+            <th>Status</th>
+            <th>Complaint</th>
+            <th>Actions</th>
+            
+          </tr>
+        </thead>
+        <tbody id="complaintTableBody">
+          <!-- Data will be injected by JS -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <div id="editModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" id="closeModal">&times;</span>
+    <h2>Edit Complaint</h2>
+    <form id="editForm">
+      <label for="editWard">Ward No:</label>
+      <input type="number" id="editWard" required>
+
+      <label for="editComplaint">Complaint:</label>
+      <textarea id="editComplaint" rows="3" required></textarea>
+
+      <button type="submit" class="save-btn">Save Changes</button>
+    </form>
+  </div>
+</div>
+
+  <script src="../../js/citizen.myComplaint.js" type="module"></script>
+</body>
+</html>

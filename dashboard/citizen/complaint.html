@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>\
+    <link rel="stylesheet" href="../../css/citizen.complaint.css">
+</head>
+<body>
+
+
+     <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>Admin</h2>
+      <button id="closeSidebar" class="close-btn">&times;</button>
+    </div>
+    <ul id="citizenNav" class="nav-list">
+      <!-- Menu injected here -->
+    </ul>
+  </aside>
+
+   <div id="overlay" class="overlay"></div>
+
+
+  <header class="topbar">
+    <button id="menuToggle" class="hamburger"><i class="fa fa-bars"></i></button>
+    <h1>Register Complaint</h1>
+  </header>
+
+<main class="content">
+    <!-- Complaint Form -->
+    <section class="complaint-form">
+      <h2>Submit a Complaint</h2>
+      <form id="complaintForm">
+      
+        <div>
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+          <label for="ward">Ward No</label>
+          <input type="text" id="ward" name="ward" required>
+        </div>
+        <div>
+          <label for="complaint">Complaint</label>
+          <textarea id="complaint" name="complaint" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Submit Complaint</button>
+      </form>
+    </section>
+    </main>
+  
+    <script src="../../js/citizen.Complaints.js" type="module"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</body>
+</html>
