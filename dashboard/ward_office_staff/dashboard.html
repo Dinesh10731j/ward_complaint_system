@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/ward_satff.dashboard.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <title>Ward Staff Dashboard</title>
+</head>
+<body>
+
+
+     <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>Ward Staff</h2>
+      <button id="closeSidebar" class="close-btn">&times;</button>
+    </div>
+    <ul id="navList" class="nav-list">
+      <!-- Menu injected here -->
+    </ul>
+  </aside>
+
+<div id="overlay" class="overlay"></div>
+  <header class="topbar">
+    <button id="menuToggle" class="hamburger"><i class="fa fa-bars"></i></button>
+    <h1>Ward Staff Dashboard</h1>
+  </header>
+
+
+
+  <main class="dashboard-content">
+    <h2 class="greeting">Hi, <span id="username">Username</span> 👋</h2>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <i class="fa fa-users stat-icon"></i>
+        <h3>Total Users</h3>
+        <p id="totalUsers">0</p>
+      </div>
+
+      <div class="stat-card pending">
+        <i class="fa fa-clock stat-icon"></i>
+        <h3>Pending</h3>
+        <p id="totalPending">0</p>
+      </div>
+
+      <div class="stat-card progress">
+        <i class="fa fa-spinner stat-icon"></i>
+        <h3>In Progress</h3>
+        <p id="totalInProgress">0</p>
+      </div>
+
+      <div class="stat-card resolved">
+        <i class="fa fa-check-circle stat-icon"></i>
+        <h3>Resolved</h3>
+        <p id="totalResolved">0</p>
+      </div>
+    </div>
+  </main>
+    <script src="../../js/ward_staff.dashboard.js" type="module"></script>
+</body>
+</html>

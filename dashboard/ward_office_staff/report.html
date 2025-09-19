@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports</title>
+  <link rel="stylesheet" href="../../css/ward_staff.report.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>Ward Staff</h2>
+      <button id="closeSidebar" class="close-btn">&times;</button>
+    </div>
+    <ul id="navList" class="nav-list">
+      <!-- Menu injected here -->
+    </ul>
+  </aside>
+
+  <div id="overlay" class="overlay"></div>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <button id="menuToggle" class="hamburger"><i class="fa fa-bars"></i></button>
+    <h1>Reports</h1>
+  </header>
+
+  <!-- Main Content -->
+  <main class="report-content">
+    <h2>Ward Complaint Report</h2>
+
+    <!-- Summary Cards -->
+    <div class="stats-grid">
+      <div class="stat-card"><i class="fa fa-list-alt stat-icon"></i><h3>Total Complaints</h3><p id="totalComplaints">0</p></div>
+      <div class="stat-card pending"><i class="fa fa-clock stat-icon"></i><h3>Pending</h3><p id="pendingComplaints">0</p></div>
+      <div class="stat-card progress"><i class="fa fa-spinner stat-icon"></i><h3>In Progress</h3><p id="progressComplaints">0</p></div>
+      <div class="stat-card resolved"><i class="fa fa-check-circle stat-icon"></i><h3>Resolved</h3><p id="resolvedComplaints">0</p></div>
+    </div>
+
+    <!-- Charts -->
+    <div class="charts">
+      <div class="chart-card">
+        <h3>Complaints Trend (Monthly)</h3>
+        <canvas id="trendChart"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>Status Distribution</h3>
+        <canvas id="statusChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Export Buttons -->
+    <div class="export-section">
+      <button class="export-btn"><i class="fa fa-file-pdf"></i> Export PDF</button>
+      <button class="export-btn"><i class="fa fa-file-csv"></i> Export CSV</button>
+    </div>
+  </main>
+
+  <script src="../../js/ward_staff.report.js" type="module"></script>
+</body>
+</html>

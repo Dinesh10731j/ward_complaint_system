@@ -5,13 +5,13 @@ export const Navigations = {
     { label: "Reports", icon: "📄", link: "/dashboard/admin/ComplaintsReport.html" },
   ],
   ward_officer: [
-    { label: "Ward Dashboard", icon: "🏘️", link: "#ward-dashboard" },
-    { label: "Citizen Requests", icon: "📩", link: "#requests" },
-    { label: "Reports", icon: "📄", link: "#ward-reports" },
+    { label: "Ward Dashboard", icon: "🏘️", link: "/dashboard/ward_office_staff/dashboard.html" },
+    { label: "Update Complaint", icon: "📩", link: "/dashboard/ward_office_staff/update_Complaint_Status.html" },
+    { label: "Report", icon: "📄", link: "/dashboard/ward_office_staff/report.html" },
   ],
   citizen: [
     { label: "Home", icon: "🏠", link: "/dashboard/citizen/dashboard.html" },
     { label: "Register Complaint", icon: "📝", link: "/dashboard/citizen/complaint.html" },
-    { label: "My Complaints", icon: "📂", link: "/dashboard/citizen/my_Complaint.html" },
+    { label: "My Complaint", icon: "📂", link: "/dashboard/citizen/my_Complaint.html" },
   ],
 };
