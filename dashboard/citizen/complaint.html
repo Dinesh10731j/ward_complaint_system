@@ -31,7 +31,7 @@
     <!-- Complaint Form -->
     <section class="complaint-form">
       <h2>Submit a Complaint</h2>
-      <form id="complaintForm">
+      <form id="complaintForm"  enctype="multipart/form-data">
       
         <div>
           <label for="username">Username</label>
@@ -45,6 +45,10 @@
           <label for="complaint">Complaint</label>
           <textarea id="complaint" name="complaint" required></textarea>
         </div>
+         <div>
+    <label for="image">Upload Image</label>
+    <input type="file" id="image" name="image" accept="image/*">
+  </div>
         <button type="submit" class="submit-btn">Submit Complaint</button>
       </form>
     </section>
