@@ -16,6 +16,8 @@ export const useLogin = async (email,password) => {
             body: JSON.stringify(payload)
         });
         const response = await requets.json();
+
+        console.log("This is the response from the login",response ?? "No respoonse from the server")
         return response;
     } catch (err) {
         throw new Error(err.message)
