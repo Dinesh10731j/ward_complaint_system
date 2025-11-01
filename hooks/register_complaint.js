@@ -4,11 +4,6 @@ const { ciziten_complaint } = Endpoints;
 
 export const registerComplaint = async (complaintData) => {
 
-
-
-
-
-
     try {
 
         const response = await fetch(ciziten_complaint, {

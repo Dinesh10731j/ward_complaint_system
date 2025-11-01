@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Public Complaints</title>
+  <link rel="stylesheet" href="./css/complaints.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo"><i class="fa-solid fa-city"></i> Ward<span>System</span></div>
+    <nav class="nav">
+      <a href="./index.html"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="./index.html#about"><i class="fa-solid fa-circle-info"></i> About</a>
+      <a href="./index.html#features"><i class="fa-solid fa-star"></i> Features</a>
+      <a href="./complaints.html" class="active"><i class="fa-solid fa-comment-dots"></i> Complaints</a>
+      <a href="./index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+      <a href="./register.html" class="btn register"><i class="fa-solid fa-user-plus"></i> Register</a>
+      <a href="./login.html" class="btn login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+    </nav>
+  </header>
+
+  <!-- Complaints Section -->
+  <main class="container">
+    <h1>Public Complaints</h1>
+    <div id="complaints-list" class="complaints-list">
+      <p class="loading">Loading complaints...</p>
+    </div>
+  </main>
+
+  <!-- Popup Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <h2>Please Login</h2>
+      <p>You must be logged in to view complaints.</p>
+      <a href="./login.html" class="btn modal-btn">Go to Login</a>
+    </div>
+  </div>
+
+  <script type="module" src="./js/complaints.js"></script>
+</body>
+</html>
