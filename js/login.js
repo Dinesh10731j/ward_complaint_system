@@ -24,7 +24,20 @@ document.addEventListener("DOMContentLoaded", () => {
           localStorage.setItem("authToken", response.token);
         }
 
-        window.location.href = "./dashboard.html";
+       switch (response?.user?.role ) {
+          case "admin":
+            window.location.href = "/dashboard/admin/dashboard.html";
+            break;
+          case "citizen":
+            window.location.href = "/dashboard/citizen/dashboard.html";
+            break;
+          case "ward_staff":
+            window.location.href = "/dashboard/ward_office_staff/dashboard.html";
+            break;
+          default:
+            window.location.href = "/index.html";
+        }
+      
       } else {
         alert(response.message || "Invalid credentials!");
       }
