@@ -7,14 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Get values from form
+
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
 
     try {
-      
+
       const response = await useLogin(email, password);
-      console.log("✅ Login Response:", response);
 
       if (response.status === "success") {
         alert(response.message || "Login successful!");
@@ -24,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
           localStorage.setItem("authToken", response.token);
         }
 
-       switch (response?.user?.role ) {
+        switch (response?.user?.role) {
           case "admin":
             window.location.href = "/dashboard/admin/dashboard.html";
             break;
@@ -37,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
           default:
             window.location.href = "/index.html";
         }
-      
+
       } else {
         alert(response.message || "Invalid credentials!");
       }
