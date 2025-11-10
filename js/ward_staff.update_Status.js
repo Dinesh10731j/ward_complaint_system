@@ -1,5 +1,6 @@
 import { Navigations } from "../config/navigation.config.js";
 import { fetchComplaints } from "../hooks/complaints.js";
+import { updateComplaintStatus } from "../hooks/update_complaint_status.js";
 const navList = document.getElementById("navList");
 const sidebar = document.getElementById("sidebar");
 const menuToggle = document.getElementById("menuToggle");
@@ -50,7 +51,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     case "pending":
       statusColor = "#ff9800";
       break;
-    case "resolved":
+    case "solved":
       statusColor = "#4caf50";
       break;
     case "in_progress":
@@ -94,18 +95,20 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   // Save updated status
-  editForm.addEventListener("submit", (e) => {
+  editForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (currentRow) {
       currentRow.querySelector(".status").innerText = statusSelect.value;
+      const complaintId = currentRow.querySelector("td:first-child").innerText
 
 
-      const updatedStatus= {
-         status:statusSelect.value
-      }
+     const updatedStatus = {
+      id: complaintId,  // send id
+      status: currentRow.querySelector(".status").innerText  // send updated status
+    };
 
 
-      console.log("Updated Status:", updatedStatus);
+    await updateComplaintStatus(updatedStatus);
     }
     popup.style.display = "none";
   });
