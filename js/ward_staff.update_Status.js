@@ -1,5 +1,5 @@
 import { Navigations } from "../config/navigation.config.js";
-
+import { fetchComplaints } from "../hooks/complaints.js";
 const navList = document.getElementById("navList");
 const sidebar = document.getElementById("sidebar");
 const menuToggle = document.getElementById("menuToggle");
@@ -37,23 +37,33 @@ overlay.addEventListener("click", () => {
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const complaints = [
-    { id: "U001", username: "Ram Thapa", complaint: "Street light not working", status: "Pending" },
-    { id: "U002", username: "Sita Lama", complaint: "Garbage not collected", status: "In Progress" },
-    { id: "U003", username: "Hari Shrestha", complaint: "Water supply issue", status: "Resolved" },
-  ];
+document.addEventListener("DOMContentLoaded", async () => {
+  const complaints = await fetchComplaints();
 
   const tableBody = document.getElementById("complaintTableBody");
 
   // Inject rows dynamically
-  complaints.forEach(c => {
+  complaints?.data?.forEach(c => {
     const row = document.createElement("tr");
+    let statusColor;
+  switch(c.status.toLowerCase()) {
+    case "pending":
+      statusColor = "#ff9800";
+      break;
+    case "resolved":
+      statusColor = "#4caf50";
+      break;
+    case "in_progress":
+      statusColor = "#2196f3";
+      break;
+    default:
+      statusColor = "gray";
+  }
     row.innerHTML = `
       <td>${c.id}</td>
-      <td>${c.username}</td>
+      <td>${c.name}</td>
       <td>${c.complaint}</td>
-      <td class="status">${c.status}</td>
+      <td class="status" style="background: ${statusColor}; font-weight: bold; padding:2px 1px">${c.status}</td>
       <td><button class="edit-btn" data-id="${c.id}">Edit</button></td>
     `;
     tableBody.appendChild(row);
