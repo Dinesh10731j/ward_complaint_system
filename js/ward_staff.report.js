@@ -1,5 +1,5 @@
 import { Navigations } from "../config/navigation.config.js";
-
+import { useWardStaffReport } from "../hooks/ward_staff_report.js";
 const navList = document.getElementById("navList");
 const sidebar = document.getElementById("sidebar");
 const menuToggle = document.getElementById("menuToggle");
@@ -28,21 +28,18 @@ overlay.addEventListener("click", () => {
   sidebar.classList.remove("active");
   overlay.classList.remove("active");
 });
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   // Dummy data
-  const reportData = {
-    total: 120,
-    pending: 35,
-    progress: 50,
-    resolved: 35,
-    monthly: [10, 15, 20, 12, 18, 25, 10, 8, 15, 12, 18, 22]
-  };
+
+
+  const wardReport = await useWardStaffReport();
+  
 
   // Inject numbers into summary cards
-  document.getElementById("totalComplaints").innerText = reportData.total;
-  document.getElementById("pendingComplaints").innerText = reportData.pending;
-  document.getElementById("progressComplaints").innerText = reportData.progress;
-  document.getElementById("resolvedComplaints").innerText = reportData.resolved;
+  document.getElementById("totalComplaints").innerText = wardReport?.data?.total;
+  document.getElementById("pendingComplaints").innerText = wardReport?.data?.pending;
+  document.getElementById("progressComplaints").innerText = wardReport?.data?.in_progress;
+  document.getElementById("resolvedComplaints").innerText = wardReport?.data?.solved;
 
   // Complaints Trend (Line Chart)
   new Chart(document.getElementById("trendChart"), {
@@ -51,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
       labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
       datasets: [{
         label: "Complaints",
-        data: reportData.monthly,
+        data: wardReport?.data?.monthly,
         borderColor: "#004aad",
         backgroundColor: "rgba(0, 74, 173, 0.2)",
         fill: true,
@@ -70,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     data: {
       labels: ["Pending", "In Progress", "Resolved"],
       datasets: [{
-        data: [reportData.pending, reportData.progress, reportData.resolved],
+        data: [wardReport?.data?.pending, wardReport?.data?.in_progress, wardReport?.data?.solved],
         backgroundColor: ["#ff9800", "#2196f3", "#4caf50"]
       }]
     },
