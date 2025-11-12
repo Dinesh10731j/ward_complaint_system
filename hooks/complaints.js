@@ -20,7 +20,6 @@ export const fetchComplaints = async () => {
     }
 
     const data = await response.json();
-    console.log("Complaints data:", data);
     return data;
   } catch (error) {
     console.error("Error fetching complaints:", error);
