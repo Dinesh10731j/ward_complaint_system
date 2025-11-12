@@ -1,11 +1,13 @@
 import { Navigations } from "../config/navigation.config.js";
 import { fetchUserDetails } from "../hooks/get_user_details.js";
+import { updateUserRole } from "../hooks/update_role.js";
 const navList = document.getElementById("navList");
 const sidebar = document.getElementById("sidebar");
 const menuToggle = document.getElementById("menuToggle");
 const closeSidebar = document.getElementById("closeSidebar");
 const overlay = document.getElementById("overlay");
 const userTableBody = document.getElementById("userTableBody");
+
 
 const user_details = await fetchUserDetails();
 const usersData = user_details.data || [];
@@ -55,11 +57,10 @@ usersData?.forEach(user => {
   userTableBody.appendChild(tr);
 
   // Optional: add click events
-  tr.querySelector(".edit-btn").addEventListener("click", () => {
+  tr.querySelector(".edit-btn").addEventListener("click", async () => {
     const role = tr.querySelector(".role-select").value;
     alert(`Role of ${usersData?.username} updated to ${role}`);
-
-    console.log(`The user_id is ${usersData?.id} and role is ${usersData?.role}`)
+await updateUserRole(user.id, role);
   });
 
   tr.querySelector(".delete-btn").addEventListener("click", () => {
