@@ -1,4 +1,5 @@
 import { Navigations } from "../config/navigation.config.js";
+import { fetchComplaints } from "../hooks/complaints.js";
 
 const navList = document.getElementById("navList");
 const sidebar = document.getElementById("sidebar");
@@ -28,24 +29,67 @@ overlay.addEventListener("click", () => {
   overlay.classList.remove("active");
 });
 
-// Complaints Data
-const complaints = [
-  { id: "CMP001", user: "John Doe", category: "Garbage", desc: "Garbage not collected for 3 days", status: "Pending", date: "2025-09-10" },
-  { id: "CMP002", user: "Jane Smith", category: "Road", desc: "Potholes in main street", status: "In Progress", date: "2025-09-08" },
-  { id: "CMP003", user: "Alex Khan", category: "Water", desc: "No water supply in the area", status: "Resolved", date: "2025-09-05" },
-];
+// ✅ Function to render complaints dynamically
+async function renderComplaints() {
+  try {
+    const response = await fetchComplaints();
+    if (response.status !== "success") {
+      console.error("Error fetching complaints:", response.message);
+      return;
+    }
 
-// Injecting dummy Complaints dynmically 
-complaints.forEach(c => {
-  const tr = document.createElement("tr");
-  tr.innerHTML = `
-    <td>${c.id}</td>
-    <td>${c.user}</td>
-    <td>${c.category}</td>
-    <td>${c.desc}</td>
-    <td><span class="status ${c.status.toLowerCase().replace(" ", "")}">${c.status}</span></td>
-    <td>${c.date}</td>
-    <td><button class="view-btn">View</button></td>
-  `;
-  complaintTableBody.appendChild(tr);
+    const complaints = response.data || [];
+    complaintTableBody.innerHTML = ""; // Clear old data
+
+    complaints.forEach(c => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${c.id}</td>
+        <td>${c.name}</td>
+        <td>${c.ward}</td>
+        <td>${c.complaint}</td>
+        <td><span class="status ${c.status.toLowerCase()}">${c.status}</span></td>
+        <td>${new Date(c.created_at).toLocaleDateString()}</td>
+        <td>
+          <img src="${c.imageUrl}" alt="Complaint Image" class="complaint-img" 
+               style="width:70px; height:70px; object-fit:cover; cursor:pointer; border-radius:8px;">
+        </td>
+      `;
+      complaintTableBody.appendChild(tr);
+
+      // Open modal on image click
+      const img = tr.querySelector(".complaint-img");
+      img.addEventListener("click", () => openImageModal(c.imageUrl));
+    });
+  } catch (error) {
+    console.error("Error loading complaints:", error);
+  }
+}
+
+// ✅ Create modal for image preview
+const modal = document.createElement("div");
+modal.id = "imageModal";
+modal.innerHTML = `
+  <div class="modal-content">
+    <span id="closeModal">&times;</span>
+    <img id="modalImage" src="" alt="Complaint Image Preview">
+  </div>
+`;
+document.body.appendChild(modal);
+
+function openImageModal(src) {
+  const modalImage = document.getElementById("modalImage");
+  modalImage.src = src;
+  modal.style.display = "flex";
+}
+
+document.getElementById("closeModal").addEventListener("click", () => {
+  modal.style.display = "none";
 });
+
+window.addEventListener("click", (e) => {
+  if (e.target === modal) modal.style.display = "none";
+});
+
+// Initial load
+renderComplaints();
