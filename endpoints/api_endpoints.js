@@ -8,5 +8,6 @@ export const Endpoints = {
     update_complaint_status:'http://localhost/ward_complain/api/ward_staff_update_complaint.php',
     ward_staff_report:'http://localhost/ward_complain/api/ward_staff_report.php',
     user_details:'http://localhost/ward_complain/api/get_users_details.php',
-    update_role:'http://localhost/ward_complain/api/update_role.php'
+    update_role:'http://localhost/ward_complain/api/update_role.php',
+    delete_role:'http://localhost/ward_complain/api/delete_user.php'
 }
