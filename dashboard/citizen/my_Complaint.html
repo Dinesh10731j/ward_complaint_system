@@ -35,6 +35,7 @@
             <th>User ID</th>
             <th>Username</th>
             <th>Ward</th>
+            <th>Image</th>
             <th>Status</th>
             <th>Complaint</th>
             <th>Actions</th>
@@ -53,8 +54,8 @@
     <span class="close-modal" id="closeModal">&times;</span>
     <h2>Edit Complaint</h2>
     <form id="editForm">
-      <label for="editWard">Ward No:</label>
-      <input type="number" id="editWard" required>
+      <label for="editWard">Ward:</label>
+      <input type="text" id="editWard" required>
 
       <label for="editComplaint">Complaint:</label>
       <textarea id="editComplaint" rows="3" required></textarea>
@@ -62,6 +63,12 @@
       <button type="submit" class="save-btn">Save Changes</button>
     </form>
   </div>
+</div>
+
+<!-- Image lightbox modal -->
+<div id="imageModal" class="image-modal" aria-hidden="true">
+  <span class="close-modal" id="closeImageModal">&times;</span>
+  <img id="lightboxImage" src="" alt="Complaint Image">
 </div>
 
   <script src="../../js/citizen.myComplaint.js" type="module"></script>

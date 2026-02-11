@@ -172,6 +172,67 @@ padding: 7px 20px;
     box-shadow: #555;
 }
 
+/* Status badges */
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+.status-pending { background: #f0ad4e; }
+.status-in-progress { background: #007bff; }
+.status-in_progress { background: #007bff; }
+.status-solved { background: #28a745; }
+.status-resolved { background: #28a745; }
+.status-rejected { background: #dc3545; }
+.status-default { background: #6c757d; }
+
+/* Thumbnail image in table */
+.thumb-img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Lightbox modal for enlarged image */
+.image-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 1200;
+}
+.image-modal[aria-hidden="false"] { display: flex; }
+.image-modal img {
+  max-width: 92vw;
+  max-height: 92vh;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+.image-modal .close-modal {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1210;
+}
+
+/* Responsive tweaks: smaller thumbs on small screens */
+@media (max-width: 480px) {
+  .thumb-img { width: 48px; height: 48px; }
+  .complaint-table { font-size: 0.9rem; }
+}
+
 
 
 /* Modal Background */

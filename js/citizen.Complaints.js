@@ -23,8 +23,7 @@ complaintForm.addEventListener("submit", async (e) => {
 
   try {
     const result = await registerComplaint(formData);
-    console.log("Complaint submitted:", result);
-    alert("Complaint submitted successfully!");
+    alert(result.message || "Complaint submitted successfully");
     complaintForm.reset();
   } catch (err) {
     console.error(err);
